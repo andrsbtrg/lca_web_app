@@ -14,16 +14,15 @@ fs = s3fs.S3FileSystem(anon=False)
 @st.experimental_memo(ttl=600)
 def read_file(filename):
     with fs.open(filename) as f:
-        return f.read().decode("utf-8")
+        return f
 
 # helper functions to load data
 # @st.cache
 def load_csv(iteration):
-    with fs.open(f"lcawebapp/session/{iteration}.csv") as f:
-
+    f = read_file(f"lcawebapp/session/{iteration}.csv")
     # content = read_file(f"lcawebapp/session/{iteration}.csv")
     # path = f'{SESSION}{iteration}.csv'
-        df = pd.read_csv(f, header=0)
+    df = pd.read_csv(f, header=0)
     uuids = df.columns
     df.columns = utils.match_id_name(uuids)
     return df
