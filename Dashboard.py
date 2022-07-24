@@ -7,7 +7,7 @@ from specklepy.api.client import SpeckleClient
 from specklepy.api.credentials import get_account_from_token
 
 # helper functions to load data
-@st.cache
+
 def load_csv(iteration):
     path = f'{SESSION}{iteration}.csv'
     df = pd.read_csv(path, header=0)
@@ -15,7 +15,7 @@ def load_csv(iteration):
     df.columns = utils.match_id_name(uuids)
     return df
 
-@st.cache(allow_output_mutation=True)
+# @st.cache(allow_output_mutation=True)
 def load_totals(n_iterations):
     dfs = []
     keys = []
@@ -29,7 +29,7 @@ def load_totals(n_iterations):
     total.columns = ['iteration', 'GWP' ]
     return total
 
-@st.cache
+# @st.cache
 def get_latest_stream_commit(speckleServer, speckleToken):
         # Client
         client = SpeckleClient(host=speckleServer)  
