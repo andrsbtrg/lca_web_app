@@ -1,3 +1,4 @@
+from matplotlib.cbook import get_sample_data
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -81,7 +82,7 @@ st.set_page_config(
 )
 
 # constants
-
+st.write(get_runs())
 try:
     max_iteration = get_runs()
     project_area = utils.get_project_area()
