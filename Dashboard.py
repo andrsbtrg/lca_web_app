@@ -7,7 +7,7 @@ import utils
 # from specklepy.api.credentials import get_account_from_token
 
 # helper functions to load data
-@st.cache
+# @st.cache
 def load_csv(iteration):
     path = f'{SESSION}{iteration}.csv'
     df = pd.read_csv(path, header=0)
