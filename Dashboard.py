@@ -22,13 +22,11 @@ def get_runs():
     Returns:
         int: number of runs in this session
     """
-    try:
-        file = fs.open('lcawebapp/session/info.txt', 'r')
-    except FileNotFoundError:
-        return 0
-    else:
-        run = file.readlines()
-        return len(run)
+    
+    with fs.open('lcawebapp/session/info.txt', 'r') as f:
+        s = f.read().recode("utf-8")
+        
+        return len(s)
 
 # helper functions to load data
 @st.experimental_memo(ttl=600)
