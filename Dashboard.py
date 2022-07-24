@@ -21,7 +21,7 @@ def read_file(filename):
 def load_csv(iteration):
     content = read_file(f"lcawebapp/session/{iteration}.csv")
     # path = f'{SESSION}{iteration}.csv'
-
+    print(content)
     df = pd.read_csv(content, header=0)
     uuids = df.columns
     df.columns = utils.match_id_name(uuids)
