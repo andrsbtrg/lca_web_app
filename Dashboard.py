@@ -4,6 +4,7 @@ import plotly.express as px
 import utils
 import s3fs
 import os
+import json
 
 # Create connection object.
 # `anon=False` means not anonymous, i.e. it uses access keys to pull data.
@@ -15,6 +16,18 @@ fs = s3fs.S3FileSystem(anon=False)
 # def read_file(filename):
 #     with fs.open(filename) as f:
 #         return f
+def get_bom():
+    with fs.open('session/bom.json') as file:
+        bom = json.load(file)
+    return bom
+
+def get_project_area():
+    bom = get_bom()
+    total = 0
+    for element in bom:
+        total += float(element['unit'])
+    return total
+
 def get_runs():
     """Gets the number of times the iterations have been run
     based on the number of results stored
@@ -84,7 +97,7 @@ st.set_page_config(
 st.write(get_runs())
 try:
     max_iteration = get_runs()
-    project_area = utils.get_project_area()
+    project_area = get_project_area()
 except FileNotFoundError:
     st.write('Such empty. Have you run your first simulation?')
 else:
