@@ -2,15 +2,27 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import utils
+import s3fs
+import os
+
+# Create connection object.
+# `anon=False` means not anonymous, i.e. it uses access keys to pull data.
+fs = s3fs.S3FileSystem(anon=False)
 
 # from specklepy.api.client import SpeckleClient
 # from specklepy.api.credentials import get_account_from_token
+@st.experimental_memo(ttl=600)
+def read_file(filename):
+    with fs.open(filename) as f:
+        return f.read().decode("utf-8")
 
 # helper functions to load data
 # @st.cache
 def load_csv(iteration):
-    path = f'{SESSION}{iteration}.csv'
-    df = pd.read_csv(path, header=0)
+    content = read_file("lcawebapp/session/{iteration}.csv")
+    # path = f'{SESSION}{iteration}.csv'
+
+    df = pd.read_csv(content, header=0)
     uuids = df.columns
     df.columns = utils.match_id_name(uuids)
     return df
