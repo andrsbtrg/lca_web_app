@@ -3,8 +3,8 @@ import pandas as pd
 import plotly.express as px
 import utils
 
-from specklepy.api.client import SpeckleClient
-from specklepy.api.credentials import get_account_from_token
+# from specklepy.api.client import SpeckleClient
+# from specklepy.api.credentials import get_account_from_token
 
 # helper functions to load data
 
@@ -30,24 +30,25 @@ def load_totals(n_iterations):
     return total
 
 # @st.cache
-def get_latest_stream_commit(speckleServer, speckleToken):
-        # Client
-        client = SpeckleClient(host=speckleServer)  
-        # get account from token
-        account = get_account_from_token(speckleToken, speckleServer)
-        client.authenticate_with_account(account)
-        streams = client.stream.list()
-        stream_names = [s.name for s in streams]
-        s_name = st.selectbox(label="Select stream", options=stream_names)
-        selected_stream = client.stream.search(s_name,limit = 3)[0]
-        # viewer.write(stream)
-        latest_commit = client.commit.list(stream_id=selected_stream.id, limit=1)[0]
-        return selected_stream, latest_commit
+# def get_latest_stream_commit(speckleServer, speckleToken):
+#         # Client
+#         client = SpeckleClient(host=speckleServer)  
+#         # get account from token
+#         account = get_account_from_token(speckleToken, speckleServer)
+#         client.authenticate_with_account(account)
+#         streams = client.stream.list()
+#         stream_names = [s.name for s in streams]
+#         s_name = st.selectbox(label="Select stream", options=stream_names)
+#         selected_stream = client.stream.search(s_name,limit = 3)[0]
+#         # viewer.write(stream)
+#         latest_commit = client.commit.list(stream_id=selected_stream.id, limit=1)[0]
+#         return selected_stream, latest_commit
+    
 # Speckle stuff
-def get_embed_view(stream, commit):
-    # <iframe src="https://speckle.xyz/embed?stream=0bacfc3aa6&transparent=true" width="600" height="400" frameborder="0"></iframe>
-    embed_src = "https://speckle.xyz/embed?stream=" + stream.id + "&commit=" + commit.id
-    return st.components.v1.iframe(src=embed_src, height = 400)
+# def get_embed_view(stream, commit):
+#     # <iframe src="https://speckle.xyz/embed?stream=0bacfc3aa6&transparent=true" width="600" height="400" frameborder="0"></iframe>
+#     embed_src = "https://speckle.xyz/embed?stream=" + stream.id + "&commit=" + commit.id
+#     return st.components.v1.iframe(src=embed_src, height = 400)
 
 # configure page (this must be called before any other Streamlit command)
 st.set_page_config(
@@ -122,17 +123,16 @@ else:
         fig = px.box(total, x="iteration", y="GWP(Ton CO2eq)")
         st.plotly_chart(fig, use_container_width= True)
 
-    with viewer:
-        viewer.subheader('3D view')
-        with viewer.expander('Speckle setup', expanded=False):
-            serverCol, tokenCol = st.columns([1,2])
-            speckleServer = serverCol.text_input('Server URL', 'speckle.xyz')
-            speckleToken = tokenCol.text_input("Speckle token", '99a33bf554f23462e45b3095ec002b8eadee863e67')
-            selected_stream, latest_commit = get_latest_stream_commit(speckleServer, speckleToken)
-            st.write(latest_commit)
+    # with viewer:
+    #     viewer.subheader('3D view')
+    #     with viewer.expander('Speckle setup', expanded=False):
+    #         serverCol, tokenCol = st.columns([1,2])
+    #         speckleServer = serverCol.text_input('Server URL', 'speckle.xyz')
+    #         speckleToken = tokenCol.text_input("Speckle token", '99a33bf554f23462e45b3095ec002b8eadee863e67')
+    #         selected_stream, latest_commit = get_latest_stream_commit(speckleServer, speckleToken)
+    #         st.write(latest_commit)
             
-        get_embed_view(selected_stream, latest_commit)
-
+    #     get_embed_view(selected_stream, latest_commit)
 
     with iteration_container:
     # Subheader
