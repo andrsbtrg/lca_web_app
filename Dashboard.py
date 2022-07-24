@@ -19,7 +19,7 @@ def read_file(filename):
 # helper functions to load data
 # @st.cache
 def load_csv(iteration):
-    content = read_file("lcawebapp/session/{iteration}.csv")
+    content = read_file(f"lcawebapp/session/{iteration}.csv")
     # path = f'{SESSION}{iteration}.csv'
 
     df = pd.read_csv(content, header=0)
