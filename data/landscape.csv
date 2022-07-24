@@ -1,0 +1,60 @@
+﻿M1,M2,M3,CO2-Removal,Embodied-CO2eq,Carbon-seqrate
+Green area,Meadow,Preserved Meadow,0.8,0,0.8
+Green area,Bare Rock,Preserved Bare Rock,0,0,0
+Green area,Meadow,Planted Meadow,0.5,0,0.7
+Green area,Shrubs,Deciduous shrub,4,0,5.96
+Green area,Shrubs,Evergreen shrub,4,0,0.37
+Green area,Shrubs,Large Shrub,4,0,17.64
+Green area,Shrubs,Mid Shrub,4,0,12.348
+Green area,Shrubs,Small Shrub,4,0,3.528
+Green area,Perennials,Perennials,1,0,5.96
+Green area,Lawn,Lawn with operation,0.4,0,0.31
+Green area,Lawn,Low Maint. Fertilized Lawn,0.4,0,-1.73
+Green area,Lawn,Mid Maint. Fertilized Lawn,0.4,0,-3.02
+Green area,Lawn,High Maint. Fertilized Lawn,0.4,0,-9.8
+Green area,Garden,Dry Garden,1,11.106,2.836
+Green area,Garden,Garden Conventional,1,9.954,4.562
+Green area,Garden,Garden Eco-Plus,1,6.878,5.466
+Green area,Garden,Garden Eco-Max,1,2.189,6.606
+Green area,Extensive Park,Extensive Park,5,0,
+Green area,Intensive Park,Park with much paved,10,28.134,2.164
+Green area,Intensive Park,Park Conventional,10,18.756,3.253
+Green area,Intensive Park,Park Eco-Plus,10,9.378,4.782
+Green area,Intensive Park,Park Eco-Max,10,3.439,5.282
+Green area,Cultivation Plot,Cultivation Plot,3,0,3.528
+Green Roof,Extensive,Extensive,1,43.73,1.46
+Green Roof,Semi Intensive,Semi Intensive,1.75,43.73,1.75
+Green Roof,Intensive,Intensive,2.2,43.73,2.2
+Green Roof,Gravel Roof,Gravel Roof,0,2.07,0
+Tree,Preserved,Preserved,30,0,21.8
+Tree,Planted,15M Large/Deciduous,21.8,0,132.8
+Tree,Planted,10M Mid/Deciduous,21.8,0,66.8
+Tree,Planted,5M Small/Deciduous,21.8,0,15.3
+Tree,Planted,15M Large/Evergreen,21.8,0,109.3
+Tree,Planted,10M Mid/Evergreen,21.8,0,47.1
+Tree,Planted,5M Small/Evergreen,21.8,0,12.6
+Tree,Planted,Deciduous 10 Year Average,21.8,0,25.53
+Tree,Planted,Deciduous 20 Year Average,21.8,0,55.85
+Tree,Planted,Evergreen 10 Year Average,21.8,0,11.79
+Tree,Planted,Evergreen 20 Year Average,21.8,0,32.14
+Tree,Planted,Large Shrub,5.5,0,5.8
+Tree,Planted,Perennial Vine,3,0,0.94
+Hard Surface,Permeable Surface,Permeable Paving,0,93.78,0
+Hard Surface,Permeable Surface,Permeable paver (Plastic with gravel filling),0,36,0
+Hard Surface,Permeable Surface,Semi Permeable Paving,0,64.89,0
+Hard Surface,Nonpermeable Surface,Concrete,0,93.78,0
+Hard Surface,Nonpermeable Surface,Asphalt,0,11.46,0
+Hard Surface,Nonpermeable Surface,Stabiliser,0,93.78,0
+Hard Surface,Nonpermeable Surface,Gravel,0,5.76,0
+Hard Surface,Nonpermeable Surface,EPDM Rubber,0,52.4,0
+Water Plaza,Fountain,Fountain with Concrete Base,0,93.78,0
+Water Plaza,Fountain,Fountain with half concrete half planting,0,46.89,1.2
+Water Plaza,Fountain,Fountain with Mostly Planting,0,18.756,1.92
+Water Plaza,Playground,Playground with Rubberized Surface,0,52.4,0
+Water Plaza,Playground,Playground with Sand and Rubberized Surface,0,28.535,0
+Water Plaza,Playground,Playground with sand and earth,0,4.67,0
+Water Body,Pond,Pond,0.5,0,0.346666667
+Water Body,Retention Basin,Retention Basin,0.3,0,2.323333333
+Water Body,Swale,Rain Garden,0.7,0,2.516666667
+Water Body,Swale,Infiltration Swale,0.3,0,0.31
+Water Body,Swale,Infiltration Pit,0,0.86,0.285666667
