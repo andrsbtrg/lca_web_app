@@ -1,4 +1,3 @@
-from matplotlib.cbook import get_sample_data
 import streamlit as st
 import pandas as pd
 import plotly.express as px
