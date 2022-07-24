@@ -25,7 +25,7 @@ def get_runs():
     
     with fs.open('lcawebapp/session/info.txt', 'r') as f:
         s = f.readlines()
-        
+        print(s)
         return len(s)
 
 # helper functions to load data
