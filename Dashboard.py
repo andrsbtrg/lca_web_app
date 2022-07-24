@@ -24,7 +24,7 @@ def get_runs():
     """
     
     with fs.open('lcawebapp/session/info.txt', 'r') as f:
-        s = f.read().recode("utf-8")
+        s = f.readlines()
         
         return len(s)
 
