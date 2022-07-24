@@ -5,6 +5,8 @@ import s3fs
 import os
 import json
 
+from utils import spearman_corr
+
 # Create connection object.
 # `anon=False` means not anonymous, i.e. it uses access keys to pull data.
 fs = s3fs.S3FileSystem(anon=False)
@@ -245,7 +247,7 @@ else:
     # normalizing by the sum of the impact of each mc trial
     contribution = data2.div(data2.sum(axis=1), axis=0)
 
-    spearman = utils.spearman_corr(data2)
+    spearman = spearman_corr(data2)
     
     with col2:
         st.write('Correlation to variance')
