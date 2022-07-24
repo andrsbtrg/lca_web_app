@@ -11,18 +11,18 @@ fs = s3fs.S3FileSystem(anon=False)
 
 # from specklepy.api.client import SpeckleClient
 # from specklepy.api.credentials import get_account_from_token
-@st.experimental_memo(ttl=600)
-def read_file(filename):
-    with fs.open(filename) as f:
-        return f
+
+# def read_file(filename):
+#     with fs.open(filename) as f:
+#         return f
 
 # helper functions to load data
-# @st.cache
+@st.experimental_memo(ttl=600)
 def load_csv(iteration):
-    f = read_file(f"lcawebapp/session/{iteration}.csv")
+    with fs.open(f"lcawebapp/session/{iteration}.csv") as f:
     # content = read_file(f"lcawebapp/session/{iteration}.csv")
     # path = f'{SESSION}{iteration}.csv'
-    df = pd.read_csv(f, header=0)
+        df = pd.read_csv(f, header=0)
     uuids = df.columns
     df.columns = utils.match_id_name(uuids)
     return df
