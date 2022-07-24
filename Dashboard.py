@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import utils
 import s3fs
 import os
 import json
@@ -16,6 +15,16 @@ fs = s3fs.S3FileSystem(anon=False)
 # def read_file(filename):
 #     with fs.open(filename) as f:
 #         return f
+def match_id_name(list_uuid):
+    bom = get_bom()
+    names = []
+    for uid in list_uuid:
+        for elem in bom:
+            if elem['id'] == uid:
+                names.append(elem['Attribute'] + '-' + uid[:4])
+                break
+    return names
+
 def get_bom():
     with fs.open('lcawebapp/session/bom.json', 'r') as f:
         bom = json.load(f)
@@ -49,7 +58,7 @@ def load_csv(iteration):
     # path = f'{SESSION}{iteration}.csv'
         df = pd.read_csv(f, header=0)
     uuids = df.columns
-    df.columns = utils.match_id_name(uuids)
+    df.columns = match_id_name(uuids)
     return df
 
 # @st.cache(allow_output_mutation=True)
