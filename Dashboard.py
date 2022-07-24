@@ -17,8 +17,8 @@ fs = s3fs.S3FileSystem(anon=False)
 #     with fs.open(filename) as f:
 #         return f
 def get_bom():
-    with fs.open('session/bom.json') as file:
-        bom = json.load(file)
+    with fs.open('lcawebapp/session/bom.json') as f:
+        bom = json.load(f)
     return bom
 
 def get_project_area():
