@@ -19,10 +19,11 @@ def read_file(filename):
 # helper functions to load data
 # @st.cache
 def load_csv(iteration):
-    content = read_file(f"lcawebapp/session/{iteration}.csv")
+    with fs.open(f"lcawebapp/session/{iteration}.csv") as f:
+
+    # content = read_file(f"lcawebapp/session/{iteration}.csv")
     # path = f'{SESSION}{iteration}.csv'
-    print(content)
-    df = pd.read_csv(content, header=0)
+        df = pd.read_csv(f, header=0)
     uuids = df.columns
     df.columns = utils.match_id_name(uuids)
     return df
