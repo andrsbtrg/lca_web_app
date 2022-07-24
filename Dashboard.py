@@ -15,6 +15,20 @@ fs = s3fs.S3FileSystem(anon=False)
 # def read_file(filename):
 #     with fs.open(filename) as f:
 #         return f
+def get_runs():
+    """Gets the number of times the iterations have been run
+    based on the number of results stored
+
+    Returns:
+        int: number of runs in this session
+    """
+    try:
+        file = fs.open('lcawebapp/session/info.txt', 'r')
+    except FileNotFoundError:
+        return 0
+    else:
+        run = file.readlines()
+        return len(run)
 
 # helper functions to load data
 @st.experimental_memo(ttl=600)
@@ -69,10 +83,9 @@ st.set_page_config(
 )
 
 # constants
-INFO = 'session/info.txt'
-SESSION = 'session/'
+
 try:
-    max_iteration = utils.get_runs()
+    max_iteration = get_runs()
     project_area = utils.get_project_area()
 except FileNotFoundError:
     st.write('Such empty. Have you run your first simulation?')
